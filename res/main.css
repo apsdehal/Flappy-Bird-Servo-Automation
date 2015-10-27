@@ -1,12 +1,24 @@
 body {
     background-color: #efefef;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 9pt;
 
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+
+a {
+    color: #999;
+    text-decoration: none;
+}
+
+section {
+    text-align:center;
 }
 
 canvas {

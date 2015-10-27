@@ -31,12 +31,11 @@
             atlas.render(gfx, "bg_day", 0, 0);
 
             var ySin = Math.sin(now / 150) * 7;
-            atlas.render(gfx, "title", 55, gfx.h * 0.18);
-            this.font.write(gfx, "typing tutor", 53, gfx.h * 0.30);
-            this.font.write(gfx, "typing tutor", 53 - 1, gfx.h * 0.30 - 1);
+            this.font.write(gfx, "btp bird", 80, gfx.h * 0.18);
+            this.font.write(gfx, "btp bird", 80 - 1, gfx.h * 0.18 - 1);
             atlas.render(
                 gfx,
-                "bird0_" + ((now / 100 | 0) % 3),
+                "wafty_" + ((now / 100 | 0) % 3),
                 gfx.w * 0.42,
                 gfx.h * 0.38 + ySin - 5
             );
@@ -45,12 +44,7 @@
             atlas.render(gfx, "land", -((now / 6 | 0) % 288), gfx.h - 112);
             atlas.render(gfx, "land", 289 - ((now / 6 | 0) % 288), gfx.h - 112);
 
-            atlas.render(gfx, "button_play", 20, gfx.h - 172);
-            atlas.render(gfx, "button_score", 152, gfx.h - 172);
-            atlas.render(gfx, "button_rate", 106, gfx.h - 242);
-
-            atlas.render(gfx, "brand_copyright", 73, gfx.h - 94);
-
+            atlas.render(gfx, "button_play", 85, gfx.h - 172);
         }
     });
 

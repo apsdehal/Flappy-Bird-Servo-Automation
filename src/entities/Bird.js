@@ -119,7 +119,7 @@
 
             window.game.atlas.render(
                 gfx,
-                "bird" + this.color + "_" + Ω.utils.toggle(this.flapping, 3),
+                "wafty" + "_" + Ω.utils.toggle(this.flapping, 3),
                 this.x - 11,
                 this.y - 17);
 
