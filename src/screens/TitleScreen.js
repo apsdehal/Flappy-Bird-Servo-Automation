@@ -35,7 +35,7 @@
             this.font.write(gfx, "btp bird", 80 - 1, gfx.h * 0.18 - 1);
             atlas.render(
                 gfx,
-                "wafty_" + ((now / 100 | 0) % 3),
+                "btp_" + ((now / 100 | 0) % 3),
                 gfx.w * 0.42,
                 gfx.h * 0.38 + ySin - 5
             );

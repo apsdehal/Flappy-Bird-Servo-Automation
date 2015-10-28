@@ -119,7 +119,7 @@
 
             window.game.atlas.render(
                 gfx,
-                "wafty" + "_" + Ω.utils.toggle(this.flapping, 3),
+                "btp" + "_" + Ω.utils.toggle(this.flapping, 3),
                 this.x - 11,
                 this.y - 17);
 
