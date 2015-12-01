@@ -16,12 +16,12 @@ a {
     color: #999;
     text-decoration: none;
 }
-
-section {
-    text-align:center;
+.board-div {
+    position: relative;
+    left: 42%;
 }
 
-canvas {
+#board {
     margin-top: 35px;
     border: 4px solid #333;
     padding: 25px 3px 35px 3px;
@@ -29,6 +29,12 @@ canvas {
     background-color: #111;
 }
 
+#score-chart {
+    float: right;
+    margin-top: -400px;
+    margin-right: 100px;
+
+}
 .training-buttons {
     margin: 0 auto;
     text-align: center;
@@ -37,4 +43,9 @@ canvas {
 .training-buttons button {
     width: 150px;
     font-size: 18px;
+}
+
+.btn:active:focus {
+  outline-color: transparent;
+  outline-style: none;
 }

@@ -114,7 +114,8 @@
 
 				case "DYING":
 					this.state.set("GAMEOVER");
-
+					window.tries += 1;
+					window.LineChart.addData(window.tries, this.score);
 					// Step 2: Observe Reward R
 					valid = true;
 					reward = -1000;

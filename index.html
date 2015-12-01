@@ -6,17 +6,19 @@
     <meta name="viewport" content="user-scalable=0, initial-scale=1.0" />
 
     <title>BTP Bird</title>
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <link rel="stylesheet" href="res/main.css">
-    <link rel="stylesheet" href="res/bootstrap.min.css">
+    <link rel="stylesheet" href="res/bootstrap.min.css">    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 </head>
 <body>
-    <section>
+    <div class="board-div">
         <canvas id="board"></canvas>
-    </section>
-
+    </div>
+    <div>
+    <canvas id="score-chart" width="400" height="300"></canvas>
+    </div>
     <!-- Ω500 lib -->
     <script src="lib/Ω500.js"></script>
 
@@ -29,6 +31,9 @@
     <script src="src/entities/Pipe.js"></script>
     <script src="src/screens/MainScreen.js"></script>
     <script src="src/screens/TitleScreen.js"></script>
+    
+    <!-- Lib -->
+    <script src="src/chart.js"></script>
     <script>
         var game = new OmegaGame(288, 512);
     </script>
