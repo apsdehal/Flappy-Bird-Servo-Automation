@@ -37,7 +37,10 @@
 		init: function () {
 			this.reset();
 			// console.log("**** **** INIT **** ****");
+			this.initWithoutReset();
+		},
 
+		initWithoutReset: function () {
 			// Vertical Distance
 			window.Q = new Array();
 			for (var vert_dist = 0; vert_dist < (this.vertical_dist_range[1] - this.vertical_dist_range[0])/this.resolution; vert_dist++) {
@@ -49,8 +52,6 @@
 				}
 			}
 
-			console.log(window.Q);
-
 			// Old Q Init
 			//window.Q = new Array();
 			//for (var i = 0; i < 400/this.resolution; i++) {
@@ -59,7 +60,6 @@
 			//console.log(window.Q);
 
 		},
-
 
 		reset: function () {
 			this.score = 0;
