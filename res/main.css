@@ -28,3 +28,13 @@ canvas {
     border-radius: 15px;
     background-color: #111;
 }
+
+#train {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#train button {
+    width: 150px;
+    font-size: 18px;
+}

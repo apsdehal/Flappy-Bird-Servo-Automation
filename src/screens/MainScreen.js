@@ -22,8 +22,6 @@
 		shake: null,
 		flash: null,
 
-
-		
 		m_state: {"vertical_distance": 0, "horizontal_distance": 0},
 		m_state_dash: {"vertical_distance": 0, "horizontal_distance": 0},
 		explore: 0.00,
@@ -33,33 +31,32 @@
 		vertical_dist_range: [-350, 190],
 		horizontal_dist_range: [0, 180],
 
-
 		min_diff: 9999, 
-		max_diff: -9999, 
+		max_diff: -9999,
 
 		init: function () {
 			this.reset();
-			console.log("**** **** INIT **** ****");
+			// console.log("**** **** INIT **** ****");
 
 			// Vertical Distance
-			this.Q = new Array();
+			window.Q = new Array();
 			for (var vert_dist = 0; vert_dist < (this.vertical_dist_range[1] - this.vertical_dist_range[0])/this.resolution; vert_dist++) {
-				this.Q[vert_dist] = new Array();
+				window.Q[vert_dist] = new Array();
 
 				// Horizontal Distance
 				for (var hori_dist = 0; hori_dist < (this.horizontal_dist_range[1] - this.horizontal_dist_range[0])/this.resolution; hori_dist++) {
-					this.Q[vert_dist][hori_dist] = {"click": 0, "do_nothing": 0};
+					window.Q[vert_dist][hori_dist] = {"click": 0, "do_nothing": 0};
 				}
 			}
 
-			console.log(this.Q);
+			console.log(window.Q);
 
 			// Old Q Init
-			//this.Q = new Array();
+			//window.Q = new Array();
 			//for (var i = 0; i < 400/this.resolution; i++) {
-			//	this.Q[i] = {"click": 0, "do_nothing": 0};
+			//	window.Q[i] = {"click": 0, "do_nothing": 0};
 			//}
-			//console.log(this.Q);
+			//console.log(window.Q);
 
 		},
 
@@ -136,7 +133,7 @@
 					
 					//console.log("Died at location: " + this.bird.y);
 					//for (var i = 80; i < 90; i++) {
-					//	console.log( "i: " + i + ", click: " + this.Q[i]["click"] + ", do_nothing: " +this.Q[i]["do_nothing"] );
+					//	console.log( "i: " + i + ", click: " + window.Q[i]["click"] + ", do_nothing: " +window.Q[i]["do_nothing"] );
 					//}
 
 					// Print debug stuff 
@@ -236,17 +233,17 @@
 				//console.log("---");
 
 
-				var click_v = this.Q[state_dash_bin_v][state_dash_bin_h]["click"];
-				var do_nothing_v = this.Q[state_dash_bin_v][state_dash_bin_h]["do_nothing"]
+				var click_v = window.Q[state_dash_bin_v][state_dash_bin_h]["click"];
+				var do_nothing_v = window.Q[state_dash_bin_v][state_dash_bin_h]["do_nothing"]
 				var V_s_dash_a_dash = Math.max(click_v, do_nothing_v);
 
-				var Q_s_a = this.Q[state_bin_v][state_bin_h][this.action_to_perform];
-				this.Q[state_bin_v][state_bin_h][this.action_to_perform] = 
+				var Q_s_a = window.Q[state_bin_v][state_bin_h][this.action_to_perform];
+				window.Q[state_bin_v][state_bin_h][this.action_to_perform] = 
 					Q_s_a + this.alpha_QL * (reward + V_s_dash_a_dash - Q_s_a);
 
 
 				//for (var i = 90; i < 95; i++) {
-				//	console.log( "i: " + i + ", click: " + this.Q[i]["click"] + ", do_nothing: " +this.Q[i]["do_nothing"] );
+				//	console.log( "i: " + i + ", click: " + window.Q[i]["click"] + ", do_nothing: " +window.Q[i]["do_nothing"] );
 				//}
 
 
@@ -278,8 +275,8 @@
 						0
 					);
 
-					var click_v = this.Q[state_bin_v][state_bin_h]["click"];
-					var do_nothing_v = this.Q[state_bin_v][state_bin_h]["do_nothing"]
+					var click_v = window.Q[state_bin_v][state_bin_h]["click"];
+					var do_nothing_v = window.Q[state_bin_v][state_bin_h]["do_nothing"]
 					this.action_to_perform = click_v > do_nothing_v ? "click" : "do_nothing";
 				}
 
@@ -314,7 +311,7 @@
 				// Horizontal Distance
 				for (var hori_dist = 0; hori_dist < (this.horizontal_dist_range[1] - this.horizontal_dist_range[0])/this.resolution; hori_dist++) {
 				
-					var debug_char = this.Q[vert_dist][hori_dist]["click"] > this.Q[vert_dist][hori_dist]["do_nothing"] ? 'c' : '-';
+					var debug_char = window.Q[vert_dist][hori_dist]["click"] > window.Q[vert_dist][hori_dist]["do_nothing"] ? 'c' : '-';
 					//$("#debug").append(debug_char);
 					debug_string = debug_string + debug_char;
 				}
