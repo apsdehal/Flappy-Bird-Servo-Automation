@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/apsdehal/btp#readme",
   "dependencies": {
-    "johnny-five": "^0.9.30"
+    "johnny-five": "^0.9.30",
+    "socket.io": "^1.4.5"
   }
 }

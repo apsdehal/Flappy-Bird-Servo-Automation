@@ -8,8 +8,9 @@
     <title>BTP Bird</title>
 
     <link rel="stylesheet" href="res/main.css">
-    <link rel="stylesheet" href="res/bootstrap.min.css">    
+    <link rel="stylesheet" href="res/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
 
 </head>
 <body>
@@ -24,22 +25,23 @@
 
     <!-- Main -->
     <script src="src/main.js"></script>
-    
+
     <!-- Game -->
     <script src="src/game.js"></script>
     <script src="src/entities/Bird.js"></script>
     <script src="src/entities/Pipe.js"></script>
     <script src="src/screens/MainScreen.js"></script>
     <script src="src/screens/TitleScreen.js"></script>
-    
+
     <!-- Lib -->
     <script src="src/chart.js"></script>
+    <script src="src/arduino.js"></script>
     <script>
         var game = new OmegaGame(288, 512);
     </script>
 
     <hr />
-    
+
     <div id="debug" style="text-align: left">
     </div>
     <div id="train" class="training-buttons">
@@ -55,5 +57,8 @@
             <button class="btn btn-warning">Graphs</button>
         </a>
     </div>
+
+
+      <button class="btn btn-normal" id="button" href="#">LED ON/OFF</button>
 </body>
 </html>
