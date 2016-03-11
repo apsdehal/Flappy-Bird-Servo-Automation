@@ -14,11 +14,16 @@
 
 </head>
 <body>
+    <div class="time-div">
+        <div>Lag time in ms</div>
+        <canvas id="time-chart" width="650" height="300"></canvas>
+    </div>
     <div class="board-div">
         <canvas id="board"></canvas>
     </div>
     <div>
-    <canvas id="score-chart" width="400" height="300"></canvas>
+        <div class="score-chart-div">Nth Try vs Score achieved</div>
+        <canvas id="score-chart" width="650" height="300"></canvas>
     </div>
     <!-- Ω500 lib -->
     <script src="lib/Ω500.js"></script>
@@ -58,7 +63,8 @@
         </a>
     </div>
 
-
-      <button class="btn btn-normal" id="button" href="#">LED ON/OFF</button>
+    <div class="training-buttons">
+      <button class="btn btn-primary" id="button" href="#">Toggle LED</button>
+    </div>
 </body>
 </html>

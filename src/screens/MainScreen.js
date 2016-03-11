@@ -58,10 +58,16 @@
 			//	window.Q[i] = {"click": 0, "do_nothing": 0};
 			//}
 			//console.log(window.Q);
-
+			//
 		},
 
 		reset: function () {
+			// Reset the timechart
+			window.TimeChart.chart.destroy();
+			window.TimeChart = new ChartClass("#time-chart");
+			TimeChart.init("Time Lag");
+			window.clicks = 0;
+
 			this.score = 0;
 			var offset = Ω.env.w * 1;
 			this.state = new Ω.utils.State("BORN");
@@ -86,7 +92,7 @@
 
 
 		tick: function () {
-			console.time("tick time");
+			var startTime = performance.now();
 
 			this.state.tick();
 			this.bird.tick();
@@ -290,6 +296,14 @@
 					this.bird.performJump();
 					window.socket.emit('jump');
 					console.timeEnd("tick time");
+					var endTime = performance.now();
+					window.setTimeout(function () {
+
+						var diff = endTime - startTime;
+						window.clicks++;
+						window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
+
+					}, 1000);
 				}
 
 			}

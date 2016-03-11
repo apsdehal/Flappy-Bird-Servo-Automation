@@ -24,7 +24,7 @@ a:hover {
 
 .board-div {
     position: relative;
-    left: 42%;
+    left: 8%;
 }
 
 #board {
@@ -75,4 +75,15 @@ a:hover {
 .btn:active:focus {
   outline-color: transparent;
   outline-style: none;
+}
+
+.time-div {
+    float:left;
+    margin-top: 180px;
+}
+
+.score-chart-div {
+    float: right;
+    margin-top: -450px;
+    margin-right: 100px;
 }

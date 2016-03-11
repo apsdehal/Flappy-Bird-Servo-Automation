@@ -7,8 +7,12 @@ $(document).ready(function () {
 		MainScreen.prototype.initWithoutReset();
 	});
 	window.tries = 0;
-	window.LineChart = new ChartClass();
-	LineChart.init();
+	window.LineChart = new ChartClass("#score-chart");
+	LineChart.init("Tries");
+
+	window.clicks = 0;
+	window.TimeChart = new ChartClass("#time-chart");
+	TimeChart.init("Time Lag");
 });
 
 
@@ -20,18 +24,18 @@ function getAverage() {
 	}
 	return sum / k.length;
 }
-function ChartClass() {
-	this.canvasElement = $("#score-chart")[0];
+function ChartClass(id) {
+	this.canvasElement = $(id)[0];
 	this.canvasElementContext = this.canvasElement.getContext('2d');
 }
 
 
-ChartClass.prototype.init = function () {
+ChartClass.prototype.init = function (label) {
 	var self = this;
 	var data = {
 		labels: [],
 	  	datasets: [{
-	        label: "Tries",
+	        label: label,
 	        fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
@@ -51,5 +55,5 @@ ChartClass.prototype.addData = function (label, value) {
 };
 
 ChartClass.prototype.clear = function () {
-
+	this.chart.clear();
 };
