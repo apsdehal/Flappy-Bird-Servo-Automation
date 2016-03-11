@@ -24,7 +24,7 @@ board.on("ready", function() {
   led = new five.Led(13);
 
   io.sockets.on('connection', function (socket) {
-    socket.on('click', function () {
+    socket.on('jump', function () {
       led.toggle();
     });
   });

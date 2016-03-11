@@ -11,6 +11,15 @@ $(document).ready(function () {
 	LineChart.init();
 });
 
+
+function getAverage() {
+	var k = window.times;
+	var sum = 0;
+	for(var i = 0; i < k.length; k++) {
+		sum += k[i];
+	}
+	return sum / k.length;
+}
 function ChartClass() {
 	this.canvasElement = $("#score-chart")[0];
 	this.canvasElementContext = this.canvasElement.getContext('2d');
@@ -19,10 +28,10 @@ function ChartClass() {
 
 ChartClass.prototype.init = function () {
 	var self = this;
-	var data = { 
-		labels: [], 
+	var data = {
+		labels: [],
 	  	datasets: [{
-	        label: "Tries",     
+	        label: "Tries",
 	        fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
