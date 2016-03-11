@@ -1,9 +1,6 @@
 $(document).ready(function () {
 	window.ChartClassMinorObject = new ChartClassMinor();
 	ChartClassMinorObject.init();
-
-	window.ChartClassMajorObject = new ChartClassMajor();
-	ChartClassMajorObject.init();
 });
 
 function ChartClassMinor() {
@@ -74,3 +71,4 @@ ChartClassMinor.prototype.addData = function (label, value) {
 ChartClassMinor.prototype.clear = function () {
 
 };
+
