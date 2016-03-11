@@ -13,6 +13,8 @@ $(document).ready(function () {
 	window.clicks = 0;
 	window.TimeChart = new ChartClass("#time-chart");
 	TimeChart.init("Time Lag");
+
+	window.timeout = 0;
 });
 
 

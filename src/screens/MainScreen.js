@@ -297,13 +297,16 @@
 					window.socket.emit('jump');
 					console.timeEnd("tick time");
 					var endTime = performance.now();
-					window.setTimeout(function () {
+					window.clicks++;
+					// console.log(window.timeout)
+					if (window.timeout === 0) {
+						window.timeout = window.setTimeout(function () {
 
-						var diff = endTime - startTime;
-						window.clicks++;
-						window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
-
-					}, 1000);
+							var diff = endTime - startTime;
+							window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
+							window.timeout = 0;
+						}, 1000);
+					}
 				}
 
 			}

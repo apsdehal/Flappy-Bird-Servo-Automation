@@ -20,7 +20,7 @@
             });
 
             Ω.input.bind({
-                "jump": ["space"] ,
+                "jump": ["space", "mouse1", "touch"] ,
                 "touch": "touch",
                 "escape": "escape",
                 "left": "left",

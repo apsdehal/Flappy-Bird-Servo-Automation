@@ -15,14 +15,14 @@
 </head>
 <body>
     <div class="time-div">
-        <div>Lag time in ms</div>
+        <div>Lag time in ms vs Number of clicks</div>
         <canvas id="time-chart" width="650" height="300"></canvas>
     </div>
     <div class="board-div">
         <canvas id="board"></canvas>
     </div>
     <div>
-        <div class="score-chart-div">Nth Try vs Score achieved</div>
+        <div class="score-chart-div">Score achieved vs Number of tries</div>
         <canvas id="score-chart" width="650" height="300"></canvas>
     </div>
     <!-- Ω500 lib -->
@@ -57,14 +57,21 @@
         <button class="btn btn-danger">Untrain</button>
     </div>
 
+
     <div class="training-buttons">
-        <a href="graphs.html">
-            <button class="btn btn-warning">Graphs</button>
+        <a href="graphs-major.html">
+            <button class="btn btn-warning">Graphs Major</button>
         </a>
     </div>
 
     <div class="training-buttons">
       <button class="btn btn-primary" id="button" href="#">Toggle LED</button>
+    </div>
+
+    <div class="training-buttons">
+        <a href="graphs-minor.html">
+            <button class="btn">Graphs Minor</button>
+        </a>
     </div>
 </body>
 </html>
