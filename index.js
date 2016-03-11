@@ -25,7 +25,10 @@ board.on("ready", function() {
 
   io.sockets.on('connection', function (socket) {
     socket.on('jump', function () {
-      led.toggle();
+      led.on();
+      setTimeout(function () {
+        led.off()
+      }, 200);
     });
   });
 });

@@ -1,6 +1,9 @@
 $(document).ready(function () {
 	window.ChartClassMinorObject = new ChartClassMinor();
 	ChartClassMinorObject.init();
+
+	window.ChartClassMajorObject = new ChartClassMajor();
+	ChartClassMajorObject.init();
 });
 
 function ChartClassMinor() {
