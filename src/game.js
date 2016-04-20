@@ -8,6 +8,7 @@
 
         fps: false,
         best: 0,
+        preset_dt: 1/60,
 
         atlas: new Ω.SpriteAtlas("csv", "res/flappyAtlas/atlas"),
 

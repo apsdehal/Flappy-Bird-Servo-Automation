@@ -92,12 +92,11 @@
 
 
 		tick: function () {
-			var startTime = performance.now();
-
 			this.state.tick();
 			this.bird.tick();
 
 			var valid = false;
+			var startTime = performance.now();
 			var reward = 0;
 
 			switch (this.state.get()) {
@@ -242,14 +241,14 @@
 				//console.log("---");
 
 
-				var click_v = window.Q[state_dash_bin_v][state_dash_bin_h]["click"];
-				var do_nothing_v = window.Q[state_dash_bin_v][state_dash_bin_h]["do_nothing"]
-				var V_s_dash_a_dash = Math.max(click_v, do_nothing_v);
+				// var click_v = window.Q[state_dash_bin_v][state_dash_bin_h]["click"];
+				// var do_nothing_v = window.Q[state_dash_bin_v][state_dash_bin_h]["do_nothing"]
+				// var V_s_dash_a_dash = Math.max(click_v, do_nothing_v);
 
-				// Action is selected here
-				var Q_s_a = window.Q[state_bin_v][state_bin_h][this.action_to_perform];
-				window.Q[state_bin_v][state_bin_h][this.action_to_perform] =
-					Q_s_a + this.alpha_QL * (reward + V_s_dash_a_dash - Q_s_a);
+				// // Action is selected here
+				// var Q_s_a = window.Q[state_bin_v][state_bin_h][this.action_to_perform];
+				// window.Q[state_bin_v][state_bin_h][this.action_to_perform] =
+				// 	Q_s_a + this.alpha_QL * (reward + V_s_dash_a_dash - Q_s_a);
 
 
 				//for (var i = 90; i < 95; i++) {
@@ -286,28 +285,33 @@
 					);
 
 					var click_v = window.Q[state_bin_v][state_bin_h]["click"];
-					var do_nothing_v = window.Q[state_bin_v][state_bin_h]["do_nothing"]
-					this.action_to_perform = click_v > do_nothing_v ? "click" : "do_nothing";
+					var do_nothing_v = window.Q[state_bin_v][state_bin_h]["do_nothing"];
+					window.socket.emit('event:need-action', {v: state_bin_v, h: state_bin_h});
+
+					var that = this;
+
+					window.socket.on('event:take-action', function (data) {
+						that.action_to_perform = data;
+						if (that.action_to_perform == "click") {
+							that.bird.performJump();
+							var endTime = performance.now();
+							window.clicks++;
+							// console.log(window.timeout)
+							if (window.timeout === 0) {
+								window.timeout = window.setTimeout(function () {
+
+									var diff = endTime - startTime;
+									window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
+									window.timeout = 0;
+								}, 1000);
+							}
+						}
+
+					});
 				}
 
 				//console.log("action performed: " + this.action_to_perform);
 
-				if (this.action_to_perform == "click") {
-					this.bird.performJump();
-					window.socket.emit('jump');
-					console.timeEnd("tick time");
-					var endTime = performance.now();
-					window.clicks++;
-					// console.log(window.timeout)
-					if (window.timeout === 0) {
-						window.timeout = window.setTimeout(function () {
-
-							var diff = endTime - startTime;
-							window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
-							window.timeout = 0;
-						}, 1000);
-					}
-				}
 
 			}
 
