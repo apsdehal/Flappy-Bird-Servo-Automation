@@ -1,7 +1,8 @@
 var app = require('http').createServer(handler),
 io = require('socket.io').listen(app),
 fs = require('fs'),
-five = require('johnny-five');
+five = require('johnny-five'),
+checks = require('./checks');
 
 app.listen(8080);
 
@@ -25,7 +26,6 @@ board = new five.Board();
 var MAX_ANGLE = 70;
 var MIN_ANGLE = 40;
 var STEPS = 5;
-var isTapFromMotorEnabled = 0;
 board.on('ready', function() {
   var servo = new five.Servo({
     pin: 5,
@@ -45,6 +45,10 @@ board.on('ready', function() {
 
   var pin9 = new five.Pin({
     pin: 9
+  });
+
+  var pin4 = new five.Pin({
+    pin: 'A4'
   });
 
   pin8.high();
@@ -85,9 +89,10 @@ board.on('ready', function() {
       }
     });
 
-    if (isTapFromMotorEnabled) {
+    if (checks.checkForMotor()) {
 
       pinA1.read(function (err, value) {
+        console.log(value);
         if (value > 1000
           && tapped === 0
           ) {
