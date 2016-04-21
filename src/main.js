@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$("#train button").click(function () {
-		window.Q = JSON.parse(localStorage.getItem('q'));
+		window.socket.emit('test:bump');
 	});
 
 	$("#untrain button").click(function () {
@@ -11,8 +11,8 @@ $(document).ready(function () {
 	LineChart.init("Tries");
 
 	window.clicks = 0;
-	window.TimeChart = new ChartClass("#time-chart");
-	TimeChart.init("Time Lag");
+	// window.TimeChart = new ChartClass("#time-chart");
+	// TimeChart.init("Time Lag");
 
 	window.timeout = 0;
 });

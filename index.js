@@ -72,38 +72,38 @@ board.on('ready', function() {
   }
 
   var tapped = 0;
+  var timeout;
 
   var that = this;
   io.sockets.on('connection', function (socket) {
+    socket.on('test:bump', function () {
+      checks.updateMotor();
+    });
     socket.on('event:need-action', function (data) {
       var stateV = data['v'];
       var stateH = data['h'];
       var click_v = trainData[stateV][stateH]["click"];
       var do_nothing_v = trainData[stateV][stateH]["do_nothing"];
-      if (click_v > do_nothing_v) {
-        servo.to(MIN_ANGLE, 50, STEPS);
-        servo.on('move:complete', callbackOnMoveComplete);
-        pinA1.high();
-      } else {
-        socket.emit('event:take-action', 'do_nothing');
+      if (!checks.checkForMotor()) {
+        if (click_v > do_nothing_v) {
+          servo.to(MIN_ANGLE, 50, STEPS);
+          servo.on('move:complete', callbackOnMoveComplete);
+          pinA1.high();
+        } else {
+          socket.emit('event:take-action', 'do_nothing');
+        }
+      } else if (checks.checkForMotor()) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+          pinA1.query(function (state) {
+            if (state.value > 1000) {
+              socket.emit('event:take-action', 'click' );
+            }
+          }, 200)
+        });
+
       }
     });
-
-    if (checks.checkForMotor()) {
-
-      pinA1.read(function (err, value) {
-        console.log(value);
-        if (value > 1000
-          && tapped === 0
-          ) {
-          socket.emit('event:take-action', 'click' );
-          tapped = 1;
-        }
-         else if (value < 1000) {
-          tapped = 0;
-        }
-      })
-    }
 
     pinA1.on('high', function () {
       socket.emit('event:take-action', 'click');

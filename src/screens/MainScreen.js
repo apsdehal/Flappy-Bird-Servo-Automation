@@ -63,9 +63,6 @@
 
 		reset: function () {
 			// Reset the timechart
-			window.TimeChart.chart.destroy();
-			window.TimeChart = new ChartClass("#time-chart");
-			TimeChart.init("Time Lag");
 			window.clicks = 0;
 
 			this.score = 0;
@@ -301,7 +298,7 @@
 								window.timeout = window.setTimeout(function () {
 
 									var diff = endTime - startTime;
-									window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
+									// window.TimeChart.addData(window.clicks, Math.ceil(diff * 10));
 									window.timeout = 0;
 								}, 1000);
 							}

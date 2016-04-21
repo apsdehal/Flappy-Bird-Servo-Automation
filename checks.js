@@ -13,5 +13,8 @@ module.exports = {
 		} else {
 			this.isVoltageThere = false;
 		}
+	},
+	updateMotor: function () {
+		this.isTapFromMotorEnabled = !this.isTapFromMotorEnabled;
 	}
 }
