@@ -60,6 +60,8 @@ Code for this can be found in this project
 
 ![Circuit Diagram](./wiki-images/circuit.png)
 
+![Final Circuit](./wiki-images/original-circuit.jpg)
+
 ## Final Architecture
 
 Following architecture can be used to create and train software to play any kind of games which can be played by a human using his arm
