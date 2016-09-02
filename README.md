@@ -83,4 +83,6 @@ Amit Kumar Mehar (@amuTBKT)
 
 ## Further information
 
+_Note: This project is a POC and should not be used for any kind of production purposes_
+
 If anyone needs further information about the project, they can contact me,

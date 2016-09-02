@@ -88,7 +88,10 @@ board.on('ready', function() {
         if (click_v > do_nothing_v) {
           servo.to(MIN_ANGLE, 50, STEPS);
           servo.on('move:complete', callbackOnMoveComplete);
-          pinA1.high();
+
+          // Pin A1 should be made high by servo motor pressing bump sensor
+          // Uncomment for testing purposes
+          // pinA1.high();
         } else {
           socket.emit('event:take-action', 'do_nothing');
         }
@@ -96,6 +99,8 @@ board.on('ready', function() {
         clearTimeout(timeout);
         timeout = setTimeout(function () {
           pinA1.query(function (state) {
+
+            // Check if bump sensor has been pressed, if yes, take click action
             if (state.value > 1000) {
               socket.emit('event:take-action', 'click' );
             }
