@@ -1,4 +1,4 @@
-# FlappyBirdRL
+# FlappyBird Automation using Servo
 
 Flappy Bird Automation using Reinforcement Learning to play automatically using servo motor
 
@@ -74,3 +74,7 @@ Following architecture can be used to create and train software to play any kind
 
 Akshay Deshraj (@axay)
 Amit Kumar Mehar (@amuTBKT)
+
+## Further information
+
+If anyone needs further information about the project, they can contact me,
