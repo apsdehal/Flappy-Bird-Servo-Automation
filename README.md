@@ -78,8 +78,10 @@ Following architecture can be used to create and train software to play any kind
 
 ## Contributors
 
-Akshay Deshraj (@axay)
-Amit Kumar Mehar (@amuTBKT)
+This project was created as undergraduate final project at IIT Roorkee
+
+- Akshay Deshraj @axay
+- Amit Kumar Mehar @amuTBKT
 
 ## Further information
 
