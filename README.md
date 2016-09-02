@@ -4,13 +4,19 @@ Flappy Bird Automation using Reinforcement Learning to play automatically using 
 
 ## Abstract
 
-Games have been a part of human entertainment since the wild age. People use games for refreshment and socialization. Thus, as a step towards becoming human like, ability to play any kind of games by robots is an essentiality.  Thus, to enable machines to play games through software intelligence, we aimed to create an architecture which would help us implement artificial intelligence on hardware components. These hardware components will imitate real humans and take information that real humans will get for making a decision. Using this information, intelligence will perform some calculations to make optimal decisions. We have used flappy bird game as a sample in this project for creating the desired architecture.
+Games have been a part of human entertainment since the wild age. People use games for refreshment and socialization. Thus, as a step towards becoming human like, ability to play any kind of games by robots is an essentiality.  Thus, to enable machines to play games through software intelligence, we aimed to create an architecture which would help us implement artificial intelligence on hardware components.
+
+These hardware components will imitate real humans and take information that real humans will get for making a decision. Using this information, intelligence will perform some calculations to make optimal decisions.
+
+We have used flappy bird game as a sample in this project for creating the desired architecture.
 
 ## Choosing a platform
 
 We initially chose web application as our major platform for testing due to simplicity of retrieving scenario information from it. Our state space consisting of horizontal distance from the pipes and vertical distance from the lower pipe was easy to implement, retrieve and analyze in the web applications.
 
-Flappy Bird could also be implemented in Android but retrieval of information about scenario is relatively complex and slow for intelligence software prototyping and training. Since, there is no direct way of taking state information from Android, we took a video stream of the game and applied image processing to get both the state space coordinates. This process due to streaming and processing took a lot of time to execute and return the coordinates and by the time it did, the bird was already dead. So for the aim of training initially and then playing, we chose the web application. The learning gained from playing web application can be applied later via streaming to Android application.
+Flappy Bird could also be implemented in Android but retrieval of information about scenario is relatively complex and slow for intelligence software prototyping and training. Since, there is no direct way of taking state information from Android, we took a video stream of the game and applied image processing to get both the state space coordinates. This process due to streaming and processing took a lot of time to execute and return the coordinates and by the time it did, the bird was already dead.
+
+So for the aim of training initially and then playing, we chose the web application. The learning gained from playing web application can be applied later via streaming to Android application.
 
 ## Q Learning State Space
 
